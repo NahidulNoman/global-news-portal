@@ -40,7 +40,7 @@ const breaking = (id) => {
         let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
         data.data.forEach(details => {
-            console.log(details)
+            //console.log(details)
             let makeDiv = document.createElement('div');
             makeDiv.classList.add('row');
             makeDiv.classList.add('mb-5');
@@ -55,7 +55,7 @@ const breaking = (id) => {
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">${details.title}</h5> <br>
-                  <p class="card-text opacity-50">${details.details.slice(0,450)}</p>
+                  <p class="card-text opacity-50">${details.details.slice(0,450) +  '...'}</p>
                   </div>
                   <div class="d-flex justify-content-between align-items-center mt-4">
                   <div>
@@ -64,7 +64,7 @@ const breaking = (id) => {
                   </div>
                   <div><span class="fw-bold">View</span>  ${details.total_view}</div>
                   <div>
-                  <button onclick="buttonDetails(${details.author.category_id})" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+                  <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
                   </div>
                   </div>
               </div>
@@ -380,8 +380,34 @@ const allNews = (id) => {
 const buttonDetails = (id) => {
     fetch(`https://openapi.programming-hero.com/api/news/${id}`)
     .then(rest => rest.json())
-    .then(data => {
-        console.log(data)
+    .then(details => {
+        //console.log(data.data)
+        let modalContainer = document.getElementById('modalContainer');
+        modalContainer.innerHTML = ``;
+        details.data.forEach(detail => {
+            console.log(detail)
+            let makeDiv = document.createElement('div');
+            makeDiv.classList.add('modal-content');
+            makeDiv.innerHTML = `
+            <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">${detail.title.slice(0,15)}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img class="mb-3" src="${detail.thumbnail_url}">
+          <p class="opacity-75">${detail.details.slice(0,200) +  '...'}</p>
+          <div class="d-flex justify-content-between">
+          <span class="fw-semibold">Author : ${detail.author.name ? detail.author.name : 'NO NAME'}</span>
+          <span class="fw-bold">View ${detail.total_view ? detail.total_view : 'NO VIEW'}</span> 
+          <button class="btn btn-primary">More Details</button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+            `
+            modalContainer.appendChild(makeDiv);
+        })
     })
 }
 
