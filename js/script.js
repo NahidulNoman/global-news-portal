@@ -6,19 +6,26 @@ const loadButtonCategories = async () => {
 const showButton = async() => {
      //console.log(loadButtonCategories()) 
      const perButton = await loadButtonCategories()
-     console.log(perButton)
+     //console.log(perButton)
 
     const buttonCategories = document.getElementById('buttonCategories');
     // buttonCategories.innerHTML = ``;
     buttonCategories.classList.add('m-5')
     buttonCategories.innerHTML = `
     <button onclick="breaking('${perButton[0].category_id}')" class="btn btn btn-primary">${perButton[0].category_name}</button>
+
     <button onclick="regular('${perButton[1].category_id}')" class="btn btn btn-primary">${perButton[1].category_name}</button>
+
     <button onclick="international('${perButton[2].category_id}')" class="btn btn btn-primary">${perButton[2].category_name}</button>
+
     <button onclick="sports('${perButton[3].category_id}')" class="btn btn btn-primary">${perButton[3].category_name}</button>
+
     <button onclick="entertainment('${perButton[4].category_id}')" class="btn btn btn-primary">${perButton[4].category_name}</button>
-    <button onclick="culture('${perButton[5].category_id}'})" class="btn btn btn-primary">${perButton[5].category_name}</button>
+
+    <button onclick="cultural('${perButton[5].category_id}')" class="btn btn btn-primary">${perButton[5].category_name}</button>
+
     <button onclick="arts('${perButton[6].category_id}')" class="btn btn btn-primary">${perButton[6].category_name}</button>
+
     <button onclick="allNews('${perButton[7].category_id}')" class="btn btn btn-primary">${perButton[7].category_name}</button>
     `
     // buttonCategories.appendChild(buttonCategories);
@@ -27,10 +34,10 @@ const breaking = (id) => {
      fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
      .then(rest => rest.json())
      .then(data => {
-       // console.log(data.data)
+        console.log(data.data)
+    //    let show = document.getElementById('total');
+    //    show.innerText = data.data.length 
         let breakingNews = document.getElementById('breakingNews');
-        // let show = document.getElementById('total');
-        // show.innerText = data.data.length
         breakingNews.innerHTML = ``;
         data.data.forEach(details => {
             console.log(details)
@@ -40,6 +47,7 @@ const breaking = (id) => {
             makeDiv.classList.add('shadow-lg')
             makeDiv.classList.add('p-4')
             makeDiv.classList.add('rounded-4')
+            makeDiv.classList.add('bg-white')
             makeDiv.innerHTML =`
             <div class="col-md-4">
                 <img src="${details.thumbnail_url}" class="img-fluid rounded-start" alt="...">
@@ -56,10 +64,9 @@ const breaking = (id) => {
                   </div>
                   <div><span class="fw-bold">View</span>  ${details.total_view}</div>
                   <div>
-                  <button class="btn btn-danger text-white">Details</button>
+                  <button onclick="buttonDetails(${details.author.category_id})" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
                   </div>
                   </div>
-                
               </div>
             `
             breakingNews.appendChild(makeDiv);
@@ -82,6 +89,7 @@ const regular = (id) => {
             makeDiv.classList.add('shadow-lg')
             makeDiv.classList.add('p-4')
             makeDiv.classList.add('rounded-4')
+            makeDiv.classList.add('bg-white')
             makeDiv.innerHTML =`
             <div class="col-md-4">
             <img src="${details.thumbnail_url}" class="img-fluid rounded-start" alt="...">
@@ -98,7 +106,7 @@ const regular = (id) => {
               </div>
               <div><span class="fw-bold">View</span>  ${details.total_view ? details.total_view : 'NO VIEW'}</div>
               <div>
-              <button class="btn btn-danger text-white">Details</button>
+              <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
               </div>
               </div>
             
@@ -124,6 +132,7 @@ const international = (id) => {
            makeDiv.classList.add('shadow-lg')
            makeDiv.classList.add('p-4')
            makeDiv.classList.add('rounded-4')
+           makeDiv.classList.add('bg-white')
            makeDiv.innerHTML =`
            <div class="col-md-4">
            <img src="${details.thumbnail_url}" class="img-fluid rounded-start" alt="...">
@@ -140,7 +149,7 @@ const international = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button class="btn btn-danger text-white">Details</button>
+             <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -167,6 +176,7 @@ const sports = (id) => {
            makeDiv.classList.add('shadow-lg')
            makeDiv.classList.add('p-4')
            makeDiv.classList.add('rounded-4')
+           makeDiv.classList.add('bg-white')
            makeDiv.innerHTML =`
            <div class="col-md-4">
            <img src="${details.thumbnail_url}" class="img-fluid rounded-start" alt="...">
@@ -183,7 +193,7 @@ const sports = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button class="btn btn-danger text-white">Details</button>
+             <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -209,6 +219,7 @@ const entertainment = (id) => {
            makeDiv.classList.add('shadow-lg')
            makeDiv.classList.add('p-4')
            makeDiv.classList.add('rounded-4')
+           makeDiv.classList.add('bg-white')
            makeDiv.innerHTML =`
            <div class="col-md-4">
            <img src="${details.thumbnail_url}" class="img-fluid rounded-start" alt="...">
@@ -225,7 +236,7 @@ const entertainment = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button class="btn btn-danger text-white">Details</button>
+             <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -236,7 +247,7 @@ const entertainment = (id) => {
     })
 }
 
-const culture = (id) => {
+const cultural =(id) => {
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
     .then(data => {
@@ -251,6 +262,7 @@ const culture = (id) => {
            makeDiv.classList.add('shadow-lg')
            makeDiv.classList.add('p-4')
            makeDiv.classList.add('rounded-4')
+           makeDiv.classList.add('bg-white')
            makeDiv.innerHTML =`
            <div class="col-md-4">
            <img src="${details.thumbnail_url}" class="img-fluid rounded-start" alt="...">
@@ -267,7 +279,7 @@ const culture = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button class="btn btn-danger text-white">Details</button>
+             <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -293,6 +305,7 @@ const arts = (id) => {
            makeDiv.classList.add('shadow-lg')
            makeDiv.classList.add('p-4')
            makeDiv.classList.add('rounded-4')
+           makeDiv.classList.add('bg-white')
            makeDiv.innerHTML =`
            <div class="col-md-4">
            <img src="${details.thumbnail_url}" class="img-fluid rounded-start" alt="...">
@@ -309,7 +322,7 @@ const arts = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button class="btn btn-danger text-white">Details</button>
+             <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -335,6 +348,7 @@ const allNews = (id) => {
            makeDiv.classList.add('shadow-lg')
            makeDiv.classList.add('p-4')
            makeDiv.classList.add('rounded-4')
+           makeDiv.classList.add('bg-white')
            makeDiv.innerHTML =`
            <div class="col-md-4">
            <img src="${details.thumbnail_url}" class="img-fluid rounded-start" alt="...">
@@ -351,7 +365,7 @@ const allNews = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button class="btn btn-danger text-white">Details</button>
+             <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -361,4 +375,17 @@ const allNews = (id) => {
        })
     })
 }
+
+
+const buttonDetails = (id) => {
+    fetch(`https://openapi.programming-hero.com/api/news/${id}`)
+    .then(rest => rest.json())
+    .then(data => {
+        console.log(data)
+    })
+}
+
+
+
+
 showButton()
