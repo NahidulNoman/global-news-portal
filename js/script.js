@@ -12,24 +12,23 @@ const showButton = async() => {
      //console.log(perButton)
      
     const buttonCategories = document.getElementById('buttonCategories');
-    buttonCategories.classList.add('m-5')
 
     buttonCategories.innerHTML = `
-    <button onclick="breaking('${perButton[0].category_id}')" class="btn btn btn-primary">${perButton[0].category_name}</button>
+    <button onclick="breaking('${perButton[0].category_id}')" class="btn btn btn-primary  mb-2">${perButton[0].category_name}</button>
 
-    <button onclick="regular('${perButton[1].category_id}')" class="btn btn btn-primary">${perButton[1].category_name}</button>
+    <button onclick="regular('${perButton[1].category_id}')" class="btn btn btn-primary mb-2">${perButton[1].category_name}</button>
 
-    <button onclick="international('${perButton[2].category_id}')" class="btn btn btn-primary">${perButton[2].category_name}</button>
+    <button onclick="international('${perButton[2].category_id}')" class="btn btn btn-primary mb-2">${perButton[2].category_name}</button>
 
-    <button onclick="sports('${perButton[3].category_id}')" class="btn btn btn-primary">${perButton[3].category_name}</button>
+    <button onclick="sports('${perButton[3].category_id}')" class="btn btn btn-primary mb-2">${perButton[3].category_name}</button>
 
-    <button onclick="entertainment('${perButton[4].category_id}')" class="btn btn btn-primary">${perButton[4].category_name}</button>
+    <button onclick="entertainment('${perButton[4].category_id}')" class="btn btn btn-primary mb-2">${perButton[4].category_name}</button>
 
-    <button onclick="cultural('${perButton[5].category_id}')" class="btn btn btn-primary">${perButton[5].category_name}</button>
+    <button onclick="cultural('${perButton[5].category_id}')" class="btn btn btn-primary mb-2">${perButton[5].category_name}</button>
 
-    <button onclick="arts('${perButton[6].category_id}')" class="btn btn btn-primary">${perButton[6].category_name}</button>
+    <button onclick="arts('${perButton[6].category_id}')" class="btn btn btn-primary mb-2">${perButton[6].category_name}</button>
 
-    <button onclick="allNews('${perButton[7].category_id}')" class="btn btn btn-primary">${perButton[7].category_name}</button>
+    <button onclick="allNews('${perButton[7].category_id}')" class="btn btn btn-primary mb-2">${perButton[7].category_name}</button>
     `
     // toggleSpinner(true);
     // buttonCategories.appendChild(buttonCategories);
@@ -448,6 +447,8 @@ const buttonDetails = (id) => {
 }
 
 // loading spinner 
+
+
 
 const toggleSpinner = (isLoading) => {
     let loader = document.getElementById('loading');
