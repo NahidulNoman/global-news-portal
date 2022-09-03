@@ -40,6 +40,9 @@ const breaking = (id) => {
   toggleSpinner(true);
   fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
   .then(rest => rest.json())
+  .catch((error) => {
+    console.log(error)
+  })
   .then(data => {
         //console.log(data.data)
        
@@ -96,6 +99,9 @@ const regular = (id) => {
   toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
      .then(rest => rest.json())
+     .catch((error) => {
+      console.log(error)
+    })
      .then(data => {
         //console.log(data.data)
         let show = document.getElementById('total');
@@ -148,6 +154,9 @@ const international = (id) => {
   toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
+    .catch((error) => {
+      console.log(error)
+    })
     .then(data => {
       // console.log(data.data)
        let show = document.getElementById('total');
@@ -200,6 +209,9 @@ const sports = (id) => {
   toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
+    .catch((error) => {
+      console.log(error)
+    })
     .then(data => {
       // console.log(data.data)
        let show = document.getElementById('total');
@@ -252,6 +264,9 @@ const entertainment = (id) => {
   toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
+    .catch((error) => {
+      console.log(error)
+    })
     .then(data => {
       // console.log(data.data)
        let show = document.getElementById('total');
@@ -304,6 +319,9 @@ const cultural =(id) => {
   toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
+    .catch((error) => {
+      console.log(error)
+    })
     .then(data => {
       // console.log(data.data)
        let show = document.getElementById('total');
@@ -356,6 +374,9 @@ const arts = (id) => {
   toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
+    .catch((error) => {
+      console.log(error)
+    })
     .then(data => {
       // console.log(data.data)
        let show = document.getElementById('total');
@@ -408,6 +429,9 @@ const allNews = (id) => {
   toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
+    .catch((error) => {
+      console.log(error)
+    })
     .then(data => {
        //console.log(data.data)
        let show = document.getElementById('total');
@@ -472,7 +496,7 @@ const buttonDetails = (id) => {
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <img class="mb-3 w-25" src="${detail.thumbnail_url}">
+          <img class="mb-3 w-75" src="${detail.image_url}">
           <p class="opacity-75">${detail.details.slice(0,200) +  '...'}</p>
           <div class="d-flex justify-content-between">
           <span class="fw-semibold">Author : ${detail.author.name ? detail.author.name : 'NO NAME'}</span>
@@ -504,4 +528,4 @@ const toggleSpinner = (isLoading) => {
 }
 
 
- showButton()
+ showButton();
