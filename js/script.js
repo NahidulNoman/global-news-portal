@@ -37,17 +37,25 @@ const showButton = async() => {
 // breaking news
 
 const breaking = (id) => {
-     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
-     .then(rest => rest.json())
-     .then(data => {
-        console.log(data.data)
-        toggleSpinner(true);
+  toggleSpinner(true);
+  fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
+  .then(rest => rest.json())
+  .then(data => {
+        //console.log(data.data)
+       
        let show = document.getElementById('total');
        show.innerText = data.data.length +  ` items found for category Breaking News. `
+
         let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
+
+        data.data.sort((a, b) => {
+          return b.total_view - a.total_view;
+        });
+
         data.data.forEach(details => {
-            //console.log(details)
+          console.log(details.total_view)
+             //console.log(shortIn)
             let makeDiv = document.createElement('div');
             makeDiv.classList.add('row');
             makeDiv.classList.add('mb-5');
@@ -78,23 +86,27 @@ const breaking = (id) => {
             `
             breakingNews.appendChild(makeDiv);
         })
-        toggleSpinner(false)
-     })
+        toggleSpinner(false);
+      })
 }
 
 // regular news
 
 const regular = (id) => {
+  toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
      .then(rest => rest.json())
      .then(data => {
-        console.log(data.data)
+        //console.log(data.data)
         let show = document.getElementById('total');
        show.innerText = data.data.length +  ` items found for category Regular News. `
         let breakingNews = document.getElementById('breakingNews');
          breakingNews.innerHTML = ``;
+         data.data.sort((a, b) => {
+          return b.total_view - a.total_view;
+        });
         data.data.forEach(details => {
-            console.log(details)
+            //console.log(details)
             let makeDiv = document.createElement('div');
             makeDiv.classList.add('row');
             makeDiv.classList.add('mb-5');
@@ -126,22 +138,27 @@ const regular = (id) => {
             `
             breakingNews.appendChild(makeDiv);
         })
-     })
+        toggleSpinner(false);
+     });
 }
 
 // international news
 
 const international = (id) => {
+  toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
     .then(data => {
-       console.log(data.data)
+      // console.log(data.data)
        let show = document.getElementById('total');
        show.innerText = data.data.length +  ` items found for category International News. `
        let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
+        data.data.sort((a, b) => {
+          return b.total_view - a.total_view;
+        });
        data.data.forEach(details => {
-           console.log(details)
+          // console.log(details)
            let makeDiv = document.createElement('div');
            makeDiv.classList.add('row');
            makeDiv.classList.add('mb-5');
@@ -172,23 +189,28 @@ const international = (id) => {
          </div>
            `
            breakingNews.appendChild(makeDiv);
-       })
+       });
+       toggleSpinner(false);
     })
 }
 
 // sports news
 
 const sports = (id) => {
+  toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
     .then(data => {
-       console.log(data.data)
+      // console.log(data.data)
        let show = document.getElementById('total');
        show.innerText = data.data.length +  ` items found for category Sports News. `
        let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
+        data.data.sort((a, b) => {
+          return b.total_view - a.total_view;
+        });
        data.data.forEach(details => {
-           console.log(details)
+        //   console.log(details)
            let makeDiv = document.createElement('div');
            makeDiv.classList.add('row');
            makeDiv.classList.add('mb-5');
@@ -219,23 +241,28 @@ const sports = (id) => {
          </div>
            `
            breakingNews.appendChild(makeDiv);
-       })
+       });
+       toggleSpinner(false);
     })
 }
 
 // entertainment news
 
 const entertainment = (id) => {
+  toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
     .then(data => {
-       console.log(data.data)
+      // console.log(data.data)
        let show = document.getElementById('total');
        show.innerText = data.data.length +  ` items found for category Entertainment News. `
        let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
+        data.data.sort((a, b) => {
+          return b.total_view - a.total_view;
+        });
        data.data.forEach(details => {
-           console.log(details)
+          // console.log(details)
            let makeDiv = document.createElement('div');
            makeDiv.classList.add('row');
            makeDiv.classList.add('mb-5');
@@ -266,23 +293,28 @@ const entertainment = (id) => {
          </div>
            `
            breakingNews.appendChild(makeDiv);
-       })
+       });
+       toggleSpinner(false);
     })
 }
 
 // cultural news
 
 const cultural =(id) => {
+  toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
     .then(data => {
-       console.log(data.data)
+      // console.log(data.data)
        let show = document.getElementById('total');
        show.innerText = data.data.length +  ` items found for category Cultural News. `
        let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
+        data.data.sort((a, b) => {
+          return b.total_view - a.total_view;
+        });
        data.data.forEach(details => {
-           console.log(details)
+          // console.log(details)
            let makeDiv = document.createElement('div');
            makeDiv.classList.add('row');
            makeDiv.classList.add('mb-5');
@@ -313,23 +345,28 @@ const cultural =(id) => {
          </div>
            `
            breakingNews.appendChild(makeDiv);
-       })
+       });
+       toggleSpinner(false);
     })
 }
 
 // arts news
 
 const arts = (id) => {
+  toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
     .then(data => {
-       console.log(data.data)
+      // console.log(data.data)
        let show = document.getElementById('total');
        show.innerText = data.data.length +  ` items found for category Arts News. `
        let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
+        data.data.sort((a, b) => {
+          return b.total_view - a.total_view;
+        });
        data.data.forEach(details => {
-           console.log(details)
+          // console.log(details)
            let makeDiv = document.createElement('div');
            makeDiv.classList.add('row');
            makeDiv.classList.add('mb-5');
@@ -360,23 +397,28 @@ const arts = (id) => {
          </div>
            `
            breakingNews.appendChild(makeDiv);
-       })
+       });
+       toggleSpinner(false);
     })
 }
 
 // all news 
 
 const allNews = (id) => {
+  toggleSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(rest => rest.json())
     .then(data => {
-       console.log(data.data)
+       //console.log(data.data)
        let show = document.getElementById('total');
        show.innerText = data.data.length +  ` items found for category All News. `
        let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
+        data.data.sort((a, b) => {
+          return b.total_view - a.total_view;
+        });
        data.data.forEach(details => {
-           console.log(details)
+          // console.log(details)
            let makeDiv = document.createElement('div');
            makeDiv.classList.add('row');
            makeDiv.classList.add('mb-5');
@@ -406,7 +448,8 @@ const allNews = (id) => {
          </div>
            `
            breakingNews.appendChild(makeDiv);
-       })
+       });
+       toggleSpinner(false);
     })
 }
 
@@ -442,12 +485,12 @@ const buttonDetails = (id) => {
         </div>
             `
             modalContainer.appendChild(makeDiv);
-        })
+        });
+        
     })
 }
 
 // loading spinner 
-
 
 
 const toggleSpinner = (isLoading) => {
@@ -461,4 +504,4 @@ const toggleSpinner = (isLoading) => {
 }
 
 
- showButton();
+ showButton()
