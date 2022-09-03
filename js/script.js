@@ -62,7 +62,7 @@ const breaking = (id) => {
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">${details.title}</h5> <br>
-                  <p class="card-text opacity-50">${details.details.slice(0,450) +  '...'}</p>
+                  <p class="card-text opacity-50">${details.details.length > 500 ? details.details.slice(0,500) + '...' : details.details}</p>
                   </div>
                   <div class="d-flex justify-content-between align-items-center mt-4">
                   <div>
@@ -71,7 +71,7 @@ const breaking = (id) => {
                   </div>
                   <div><span class="fw-bold">View</span>  ${details.total_view}</div>
                   <div>
-                  <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+                  <button onclick="buttonDetails('${details._id}')" class="btn btn-white text-dark fw-semibold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
                   </div>
                   </div>
               </div>
@@ -109,7 +109,7 @@ const regular = (id) => {
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">${details.title}</h5> <br>
-              <p class="card-text opacity-50">${details.details.slice(0,450)  +  '...'}</p>
+              <p class="card-text opacity-50">${details.details.length > 500 ? details.details.slice(0,500) + '...' : details.details}</p>
               </div>
               <div class="d-flex justify-content-between align-items-center mt-4">
               <div>
@@ -118,7 +118,7 @@ const regular = (id) => {
               </div>
               <div><span class="fw-bold">View</span>  ${details.total_view ? details.total_view : 'NO VIEW'}</div>
               <div>
-              <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+              <button onclick="buttonDetails('${details._id}')" class="btn btn-white text-dark fw-semibold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
               </div>
               </div>
             
@@ -156,7 +156,7 @@ const international = (id) => {
          <div class="col-md-8">
            <div class="card-body">
              <h5 class="card-title">${details.title}</h5> <br>
-             <p class="card-text opacity-50">${details.details.slice(0,450)  +  '...'}</p>
+             <p class="card-text opacity-50">${details.details.length > 500 ? details.details.slice(0,500) + '...' : details.details}</p>
              </div>
              <div class="d-flex justify-content-between align-items-center mt-4">
              <div>
@@ -165,7 +165,7 @@ const international = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+             <button onclick="buttonDetails('${details._id}')" class="btn btn-white text-dark fw-semibold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -203,7 +203,7 @@ const sports = (id) => {
          <div class="col-md-8">
            <div class="card-body">
              <h5 class="card-title">${details.title}</h5> <br>
-             <p class="card-text opacity-50">${details.details.slice(0,450)  +  '...'}</p>
+             <p class="card-text opacity-50">${details.details.length > 500 ? details.details.slice(0,500) + '...' : details.details}</p>
              </div>
              <div class="d-flex justify-content-between align-items-center mt-4">
              <div>
@@ -212,7 +212,7 @@ const sports = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+             <button onclick="buttonDetails('${details._id}')" class="btn btn-white text-dark fw-semibold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -250,7 +250,7 @@ const entertainment = (id) => {
          <div class="col-md-8">
            <div class="card-body">
              <h5 class="card-title">${details.title}</h5> <br>
-             <p class="card-text opacity-50">${details.details.slice(0,450)  +  '...'}</p>
+             <p class="card-text opacity-50">${details.details.length > 500 ? details.details.slice(0,500) + '...' : details.details}</p>
              </div>
              <div class="d-flex justify-content-between align-items-center mt-4">
              <div>
@@ -259,7 +259,7 @@ const entertainment = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+             <button onclick="buttonDetails('${details._id}')" class="btn btn-white text-dark fw-semibold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -297,7 +297,7 @@ const cultural =(id) => {
          <div class="col-md-8">
            <div class="card-body">
              <h5 class="card-title">${details.title}</h5> <br>
-             <p class="card-text opacity-50">${details.details.slice(0,450)  +  '...'}</p>
+             <p class="card-text opacity-50">${details.details.length > 500 ? details.details.slice(0,500) + '...' : details.details}</p>
              </div>
              <div class="d-flex justify-content-between align-items-center mt-4">
              <div>
@@ -306,7 +306,7 @@ const cultural =(id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+             <button onclick="buttonDetails('${details._id}')" class="btn btn-white text-dark fw-semibold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -344,7 +344,7 @@ const arts = (id) => {
          <div class="col-md-8">
            <div class="card-body">
              <h5 class="card-title">${details.title}</h5> <br>
-             <p class="card-text opacity-50">${details.details.slice(0,450)  +  '...'}</p>
+             <p class="card-text opacity-50">${details.details.length > 300 ? details.details.slice(0,300) + '...' : details.details}</p>
              </div>
              <div class="d-flex justify-content-between align-items-center mt-4">
              <div>
@@ -353,7 +353,7 @@ const arts = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+             <button onclick="buttonDetails('${details._id}')" class="btn btn-white text-dark fw-semibold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -391,7 +391,7 @@ const allNews = (id) => {
          <div class="col-md-8">
            <div class="card-body">
              <h5 class="card-title">${details.title}</h5> <br>
-             <p class="card-text opacity-50">${details.details.slice(0,450)  +  '...'}</p>
+             <p class="card-text opacity-50">${details.details.length > 500 ? details.details.slice(0,500) + '...' : details.details}</p>
              </div>
              <div class="d-flex justify-content-between align-items-center mt-4">
              <div>
@@ -400,7 +400,7 @@ const allNews = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view  ? details.total_view : '0'}</div>
              <div>
-             <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+             <button onclick="buttonDetails('${details._id}')" class="btn btn-white text-dark fw-semibold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
          </div>
@@ -429,7 +429,7 @@ const buttonDetails = (id) => {
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <img class="mb-3" src="${detail.thumbnail_url}">
+          <img class="mb-3 w-25" src="${detail.thumbnail_url}">
           <p class="opacity-75">${detail.details.slice(0,200) +  '...'}</p>
           <div class="d-flex justify-content-between">
           <span class="fw-semibold">Author : ${detail.author.name ? detail.author.name : 'NO NAME'}</span>
@@ -461,4 +461,4 @@ const toggleSpinner = (isLoading) => {
 }
 
 
- showButton()
+ showButton();

@@ -4,47 +4,72 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blog</title>
+    <style>
+        .body{
+            background-color: #e0e2e4;
+        }
+    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
-  <body>
-   <section class="container mb-5">
-    <h1 class="text-center m-3 mb-4">Var, Let, and Const <br> What's the Difference?</h1>
+  <body class="body">
+
+    <!-- header start -->
+
+    <header>
+        <nav class="navbar bg-light p-3 mb-5">
+            <div class="container">
+              <a class="navbar-brand">Global <span class="text-success fw-bold">Blog Portal</span></a>
+              <form class="d-flex" role="search">
+                <a href="index.html" class="btn btn-info mx-4 text-white fw-semibold">Home</a>
+                <a href="blog.html" class="btn btn-info text-white fw-semibold">Blog</a>
+              </form>
+            </div>
+          </nav>
+    </header>
+
+ <!-- header end -->
+
+
+   <section class="container mb-5 bg-light text-black p-4 rounded-4 shadow-lg">
+    <h1 class="text-center m-3 mb-4 text-primary">Var, Let, and Const <br> What's the Difference?</h1>
     <h5>VAR</h5>
-    <p>
+    <p class="opacity-75">
         Earlier only var is there and he is the king of variable declarations. But there are some issues associated with variables declared with var, though. That is why let and const introduced.
         <br>
         Var declarations are globally scoped or function scoped. That means if a variable is declared with var outside a function then it is in the global scope(accessible anywhere). Otherwise, if they are inside a function we can only access them inside the function.
     </p>
     <h5>LET</h5>
-    <p>
+    <p class="opacity-75">
         It’s an enhanced version of var, it solves all the problems that come with the var keyword. Like, let is a block-scoped variable and we cannot re-declared but can be updated(re-assigned). You’ll see in the below example as it shows that let is preferable over var.
 
     </p>
     <h5>CONST</h5>
-    <p>
+    <p class="opacity-75">
         Const declarations share some similarities with let declarations, but const variables cannot be updated or re-declared. It maintains the constant values.
         Unlike var and let, if we are using const then it must be initialized at the same time when we declared the variable.
     </p>
    </section>
 
-   <section class="container mb-5">
-        <h1 class="text-center m-3 mb-5">Difference Regular Functions <br> and Arrow Functions</h1>
+   <section class="container mb-5 bg-light text-black p-4 rounded-4 shadow-lg">
+        <h1 class="text-center m-3 mb-5 text-primary">Difference Regular Functions <br> and Arrow Functions</h1>
     <h5>ARROW & REGULAR</h5>
-    <p>
+    <p class="opacity-75">
         Arrow functions – a new feature introduced in ES6 – enable writing concise functions in JavaScript. While both regular and arrow functions work in a similar manner, yet there are certain interesting differences between them, as discussed below.
     </p>
    </section>
 
-   <section class="container mb-5">
-    <h1 class="text-center m-3 mb-5">Why use Template String ?</h1>
-    <P>
+   <section class="container mb-5 bg-light text-black p-4 rounded-4 shadow-lg">
+    <h1 class="text-center m-3 mb-5 text-primary">Why use Template String ?</h1>
+    <h5>TEMPLATE STRING</h5>
+    <p class="opacity-75" >
         Template literals are literals delimited with backtick (`) characters, allowing for multi-line strings, for string interpolation with embedded expressions, and for special constructs called tagged templates.
         <br>
         Template literals are sometimes informally called template strings, because they are used most commonly for string interpolation (to create strings by doing substitution of placeholders). However, a tagged template literal may not result in a string; it can be used with a custom tag function to perform whatever operations you want on the different parts of the template literal.
-    </P>
+    </p>
    </section>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
