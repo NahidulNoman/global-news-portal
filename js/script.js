@@ -10,7 +10,7 @@ const showButton = async() => {
      //console.log(loadButtonCategories()) 
      const perButton = await loadButtonCategories()
      //console.log(perButton)
-
+     
     const buttonCategories = document.getElementById('buttonCategories');
     buttonCategories.classList.add('m-5')
 
@@ -31,6 +31,7 @@ const showButton = async() => {
 
     <button onclick="allNews('${perButton[7].category_id}')" class="btn btn btn-primary">${perButton[7].category_name}</button>
     `
+    // toggleSpinner(true);
     // buttonCategories.appendChild(buttonCategories);
 }
 
@@ -41,6 +42,7 @@ const breaking = (id) => {
      .then(rest => rest.json())
      .then(data => {
         console.log(data.data)
+        toggleSpinner(true);
        let show = document.getElementById('total');
        show.innerText = data.data.length +  ` items found for category Breaking News. `
         let breakingNews = document.getElementById('breakingNews');
@@ -77,7 +79,7 @@ const breaking = (id) => {
             `
             breakingNews.appendChild(makeDiv);
         })
-
+        toggleSpinner(false)
      })
 }
 
@@ -445,7 +447,17 @@ const buttonDetails = (id) => {
     })
 }
 
+// loading spinner 
+
+const toggleSpinner = (isLoading) => {
+    let loader = document.getElementById('loading');
+    if(isLoading === true){
+        loader.classList.remove('d-none')
+    }
+    else{
+        loader.classList.add('d-none')
+    }
+}
 
 
-
-showButton()
+ showButton()
