@@ -35,8 +35,8 @@ const breaking = (id) => {
      .then(rest => rest.json())
      .then(data => {
         console.log(data.data)
-    //    let show = document.getElementById('total');
-    //    show.innerText = data.data.length 
+       let show = document.getElementById('total');
+       show.innerText = data.data.length +  ` items found for category Breaking News. `
         let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
         data.data.forEach(details => {
@@ -79,6 +79,8 @@ const regular = (id) => {
      .then(rest => rest.json())
      .then(data => {
         console.log(data.data)
+        let show = document.getElementById('total');
+       show.innerText = data.data.length +  ` items found for category Regular News. `
         let breakingNews = document.getElementById('breakingNews');
          breakingNews.innerHTML = ``;
         data.data.forEach(details => {
@@ -106,7 +108,7 @@ const regular = (id) => {
               </div>
               <div><span class="fw-bold">View</span>  ${details.total_view ? details.total_view : 'NO VIEW'}</div>
               <div>
-              <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+              <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
               </div>
               </div>
             
@@ -122,6 +124,8 @@ const international = (id) => {
     .then(rest => rest.json())
     .then(data => {
        console.log(data.data)
+       let show = document.getElementById('total');
+       show.innerText = data.data.length +  ` items found for category International News. `
        let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
        data.data.forEach(details => {
@@ -149,7 +153,7 @@ const international = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+             <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -166,6 +170,8 @@ const sports = (id) => {
     .then(rest => rest.json())
     .then(data => {
        console.log(data.data)
+       let show = document.getElementById('total');
+       show.innerText = data.data.length +  ` items found for category Sports News. `
        let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
        data.data.forEach(details => {
@@ -193,7 +199,7 @@ const sports = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+             <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -209,6 +215,8 @@ const entertainment = (id) => {
     .then(rest => rest.json())
     .then(data => {
        console.log(data.data)
+       let show = document.getElementById('total');
+       show.innerText = data.data.length +  ` items found for category Entertainment News. `
        let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
        data.data.forEach(details => {
@@ -236,7 +244,7 @@ const entertainment = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+             <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -252,6 +260,8 @@ const cultural =(id) => {
     .then(rest => rest.json())
     .then(data => {
        console.log(data.data)
+       let show = document.getElementById('total');
+       show.innerText = data.data.length +  ` items found for category Cultural News. `
        let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
        data.data.forEach(details => {
@@ -279,7 +289,7 @@ const cultural =(id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+             <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -295,6 +305,8 @@ const arts = (id) => {
     .then(rest => rest.json())
     .then(data => {
        console.log(data.data)
+       let show = document.getElementById('total');
+       show.innerText = data.data.length +  ` items found for category Arts News. `
        let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
        data.data.forEach(details => {
@@ -322,7 +334,7 @@ const arts = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+             <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
            
@@ -338,6 +350,8 @@ const allNews = (id) => {
     .then(rest => rest.json())
     .then(data => {
        console.log(data.data)
+       let show = document.getElementById('total');
+       show.innerText = data.data.length +  ` items found for category All News. `
        let breakingNews = document.getElementById('breakingNews');
         breakingNews.innerHTML = ``;
        data.data.forEach(details => {
@@ -365,10 +379,9 @@ const allNews = (id) => {
              </div>
              <div><span class="fw-bold">View</span>  ${details.total_view}</div>
              <div>
-             <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+             <button onclick="buttonDetails('${details._id}')" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
              </div>
              </div>
-           
          </div>
            `
            breakingNews.appendChild(makeDiv);
