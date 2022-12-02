@@ -3,7 +3,7 @@ const loadButtonCategories = async () => {
     const categories = await response.json();
     return categories.data.news_category;
 }
-
+// make some crazy tick.
 // button show on display 
 
 const showButton = async() => {
